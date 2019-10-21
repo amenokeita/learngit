@@ -1,7 +1,12 @@
-#include "/home/rlk/text1/learngit/week6/static/mylib.h"
+#include "/home/rlk/text1/learngit/linux/week6/static/mylib.h"
 #include <dlfcn.h>
 #include <stdio.h>
 #include <stdlib.h>
+
+int max(int *,int);
+int sum(int *,int);
+void show(int *,int);
+void init(int *,int);
 int main(){
 	int a[5] = {12, 2464, -425, 45, 342};
 
@@ -10,7 +15,11 @@ int main(){
 	int (*f2)();
 	int (*f3)();
 	char *error;
-	handle = dlopen("/home/rlk/text1/learngit/week6/static/libmy.so",RTLD_LAZY);
+	handle = dlopen("/home/rlk/text1/learngit/linux/week6/static/libmy.so",RTLD_LAZY);
+if(handle)
+	{
+		perror("load success!\n");
+	}
 	if(!handle)
 	{
 		perror("load failed!\n");
